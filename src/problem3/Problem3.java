@@ -1,4 +1,4 @@
-/*
+package problem3;/*
 * leetcode 3. Longest Substring Without Repeating Characters
 *
 * Author : xionghh
