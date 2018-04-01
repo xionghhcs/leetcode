@@ -1,4 +1,3 @@
-package problem4;
 /*
 * leetcode 4. Longest Substring Without Repeating Characters
 *
@@ -6,6 +5,7 @@ package problem4;
 *
 * Date : 2018-04-01
 * */
+package problem4;
 
 public class Problem4 {
     public static void main(String[] args) {
