@@ -25,11 +25,11 @@ class Solution {
         int max_len = 0;
         int s_len = s.length();
         for (int i = 0; i < s_len; i++) {
-            char [] hash_table = new char[255];
+            char[] hash_table = new char[255];
             for (int k = 0; k < 255; k++) {
                 hash_table[k] = 0;
             }
-            int j=i;
+            int j = i;
             for (; j < s_len; j++) {
                 if (hash_table[s.charAt(j)] > 0) {
                     break;
@@ -37,11 +37,21 @@ class Solution {
                     hash_table[s.charAt(j)] = 1;
                 }
             }
-            if(j-i>max_len){
-                max_len = j-i;
+            if (j - i > max_len) {
+                max_len = j - i;
             }
         }
         return max_len;
     }
 }
 
+/*
+* 动态规划的方法
+* */
+class Solution1 {
+    public int lengthOfLongestSubstring(String s) {
+        int max_length = 0;
+
+        return max_length;
+    }
+}
