@@ -81,7 +81,6 @@ class Solution2 {
 /*
 * 非递归、线性求解方法
 * */
-
 class Solution3 {
     public int maxSubArray(int[] nums) {
         int res = Integer.MIN_VALUE;
