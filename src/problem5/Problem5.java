@@ -15,7 +15,9 @@ public class Problem5 {
 }
 
 /*
- * 暴力
+ * 暴力:
+ * 遍历所有的字串，并判断每个字串是否是回文的
+ *
  * */
 class Solution {
     public String longestPalindrome(String s) {
@@ -56,6 +58,10 @@ class Solution {
     }
 }
 
+/*
+*
+*
+* */
 class Solution2 {
     public String longestPalindrome(String s) {
         String res = "";
@@ -69,9 +75,10 @@ class Solution2 {
     }
 
     String checkPalindrom(String s, int center) {
-        if (center == 0) {
-            return String.valueOf(s.charAt(center));
-        }
+
+        // if (center == 0 || center == s.length()-1) {
+        //     return String.valueOf(s.charAt(center));
+        // }
         int i = center;
         int j = center;
         String odd_str = "";
@@ -79,19 +86,40 @@ class Solution2 {
             i--;
             j++;
         }
-        odd_str = s.substring(i + 1, j - 1);
+        i++;
+        j--;
+        odd_str = s.substring(i, j+1);
+
         i = center - 1;
         j = center;
-
-        while (i >= 0 && j < s.length() && s.charAt(i) != s.charAt(j)) {
+        while (i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j)) {
             i--;
             j++;
         }
-        String even_str = s.substring(i+1, j-1);
+        i++;
+        j--;
+        String even_str = "";
+        if(i<=j){
+            even_str = s.substring(i,j+1);
+        }
+        // System.out.println(center+":"+even_str+":"+odd_str);
         if (even_str.length() > odd_str.length()) {
             return even_str;
         } else {
             return odd_str;
         }
+
+    }
+}
+
+/*
+* 线性时间解法
+*
+* */
+class Solution3{
+    public String longestPalindrome(String s) {
+        String res = "";
+
+        return res;
     }
 }

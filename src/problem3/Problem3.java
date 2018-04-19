@@ -1,10 +1,12 @@
-package problem3;/*
-* leetcode 3. Longest Substring Without Repeating Characters
-*
-* Author : xionghh
-*
-* Date : 2018-04-01
-* */
+/*
+ * leetcode 3. Longest Substring Without Repeating Characters
+ *
+ * Author : xionghh
+ *
+ * Date : 2018-04-01
+ * */
+package problem3;
+
 
 import java.util.*;
 
