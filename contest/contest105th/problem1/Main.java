@@ -1,4 +1,4 @@
-package contest107th.problem1;
+package contest105th.problem1;
 
 public class Main {
     public static void main(String[] args) {

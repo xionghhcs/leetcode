@@ -1,4 +1,4 @@
-package contest107th.problem3;
+package contest105th.problem3;
 
 import java.util.*;
 
