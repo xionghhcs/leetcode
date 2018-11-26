@@ -13,6 +13,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Problem12 {
+    public static void main(String[] args) {
+
+    }
 }
 
 class Solution {
