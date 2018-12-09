@@ -5,14 +5,18 @@ class Solution:
         :type popped: List[int]
         :rtype: bool
         """
-        value_dict = dict()
-        for idx in range(len(pushed)):
-            value_dict[pushed[idx]] = idx
-
+        stack = []
         for idx, v in enumerate(pushed):
-            pushed[idx] = value_dict[v]
-        for idx, v in enumerate(popped):
-            popped[idx] = value_dict[v]
+            stack.append(v)
+            while len(stack) > 0 and stack[-1] == popped[0]:
+                del stack[-1]
+                del popped[0]
+        if len(stack) == 0:
+            return True
+        else:
+            return False
+
+
 
 
 
