@@ -5,6 +5,7 @@ class Solution:
         :rtype: int
         """
         ans = 0
+
         columns = len(A)
         for c in range(columns):
             flag = []
