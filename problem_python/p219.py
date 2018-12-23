@@ -7,7 +7,6 @@ class Solution(object):
         """
         hash_table = dict()
         dist_table = dict()
-        max_val = -1
         for idx, v in enumerate(nums):
             if v in hash_table:
                 dist = idx - hash_table[v]
