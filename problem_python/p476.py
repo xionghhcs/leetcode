@@ -12,7 +12,6 @@ class Solution:
                 num = num // 2
             return ans
         ans = get_bit(num)
-        print(ans)
         res = 0
         base = 1
         for b in ans:
