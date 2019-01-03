@@ -11,9 +11,25 @@ class Solution(object):
         :rtype: str
         """
         def get_ans(t):
-            if t.left is None and t.right is None:
-                return '({})'.format(t.val)
+            if t is not None:
+                cur = t.val
+                res = '{}'.format(cur)
+                l = get_ans(t.left)
+                r = get_ans(t.right)
+                if l == '' and r == '':
+                    return res
+                if l != '' and r == '':
+                    res += '({})'.format(l)
+                    return res
+                if l == '' and r != '':
+                    res += '()({})'.format(r)
+                    return res
+                if l != '' and r != '':
+                    res += '({})({})'.format(l, r)
+                    return res
+                return res
             else:
+                return ''
                 
         ans = get_ans(t)
         return ans
