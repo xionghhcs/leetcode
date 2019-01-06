@@ -5,3 +5,4 @@ class Solution:
         :type num2: str
         :rtype: str
         """
+        return str(int(num1) + int(num2))
