@@ -11,6 +11,15 @@ class Solution:
         :rtype: int
         """
         def get_ans(r):
-            
+            if r :
+                get_ans(r.left)
+                vals.append(r.val)
+                get_ans(r.right)
             return r
-        
+        vals = []
+        get_ans(root)
+        ans = 1000000
+        for i in range(1, len(vals)):
+            if abs(vals[i-1] - vals[i]) < ans:
+                ans = abs(vals[i-1] - vals[i])
+        return ans
