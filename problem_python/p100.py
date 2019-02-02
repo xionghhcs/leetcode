@@ -1,25 +1,45 @@
-class TreeNode:
+
+# Definition for a binary tree node.
+class TreeNode(object):
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
 
-class Solution:
-    def isSameTree(self, p, q):
+class Solution(object):
+    def isBalanced(self, root):
         """
-        :type p: TreeNode
-        :type q: TreeNode
+        :type root: TreeNode
         :rtype: bool
         """
-        def equal(p, q):
-            if p is None and q is None:
-                return True
-            elif p is not None and q is not None:
-                if p.val == q.val:
-                    return equal(p.left, q.left) and equal(p.right, q.right)
-                else:
-                    return False
+        def get_h(root, h):
+            if root is None:
+                return h
             else:
-                return False
-        return equal(p, q)
+                if root.left is not None:
+                    h_left = get_h(root.left, h+1)
+                else:
+                    h_left = 0
+                
+                if root.right is not None:
+                    h_right = get_h(root.right, h+1)
+                else:
+                    h_right = 0
+                
+                cur_h = max(h_left, h_right)
+                return cur_h
         
+        def judge(root):
+            if root is None:
+                return True
+            else:
+                h_left = get_h(root.left, 0)
+                h_right = get_h(root.right, 0)
+                if abs(h_left - h_right) >1:
+                    return False
+                else:
+                    return judge(root.left) and judge(root.right)
+        
+        return judge(root)
+
+
