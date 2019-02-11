@@ -11,6 +11,13 @@ class Solution(object):
         :type root: TreeNode
         :rtype: void Do not return anything, modify root in-place instead.
         """
-        def get_ans(root):
-            if root is not None:
-                
+        if root is None:
+            return None
+        flatten(root.left)
+        flatten(root.right)
+        tmp = root.right
+        root.right = root.left
+        root.left = None
+        while root.right is not None:
+            root = root.right
+        root.right = tmp
