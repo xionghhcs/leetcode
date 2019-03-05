@@ -1,29 +1,20 @@
+# 其中排序算法
+
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
-        Do not return anything, modify nums in-place instead.
+        冒泡
         """
-        def swap(nums, left, right):
-            tmp = nums[left]
-            nums[left] = nums[right]
-            nums[right] = tmp
-
-        def partition(nums, i, j):
-            if i > j:
-                return -1
-            left = i + 1
-            right = j
-            mid_val = nums[i]
-            while left < right:
-                while left < right and nums[left] < mid_val:
-                    left += 1
-                while left < right and nums[right] >= mid_val:
-                    right -= 1 
-                swap(nums, left, right)    
-            swap(nums, i, right)
-        
-        idx = partition(nums, 0, len(nums) - 1)
-        partition(nums, 0, idx - 1)
-        partition(nums, 0, idx + 1)
+        if nums is None:
+            return None
+        for i in range(1, len(nums)):
+            j = i - 1
+            tmp = nums[i]
+            while j >=0 and nums[j] > tmp:
+                nums[j+1] = nums[j]
+                j -= 1
+            if j < 0:
+                nums[0] = tmp
+            else:
+                nums[j+1] = tmp
         return nums
-
