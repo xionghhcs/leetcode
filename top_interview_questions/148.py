@@ -6,7 +6,11 @@ class ListNode:
 
 class Solution:
     def sortList(self, head: ListNode) -> ListNode:
+<<<<<<< HEAD
         if head is None:
             return None
         
         
+=======
+        
+>>>>>>> b68903a00bfed5a24270df98f0d577ea66522d6a
