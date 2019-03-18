@@ -13,11 +13,11 @@ class Solution:
         for l in range(3, len(s)+1):
             for i in range(0, len(s) - l + 1):
                 j = i + l - 1
-                if s[i] == s[j] and dp[i][j] == 1:
+                if s[i] == s[j] and dp[i+1][j-1] == 1:
                     dp[i][j] = 1
                     ans = l
                     max_idx = i
         
         return s[max_idx:max_idx + ans]
 
-        
+ 
