@@ -1,35 +1,23 @@
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
-class Solution(object):
-    def tree2str(self, t):
-        """
-        :type t: TreeNode
-        :rtype: str
-        """
-        def get_ans(t):
-            if t is not None:
-                cur = t.val
-                res = '{}'.format(cur)
-                l = get_ans(t.left)
-                r = get_ans(t.right)
-                if l == '' and r == '':
-                    return res
-                if l != '' and r == '':
-                    res += '({})'.format(l)
-                    return res
-                if l == '' and r != '':
-                    res += '()({})'.format(r)
-                    return res
-                if l != '' and r != '':
-                    res += '({})({})'.format(l, r)
-                    return res
-                return res
+class Solution:
+    def tree2str(self, t: TreeNode) -> str:
+        self.ans = []
+        def preorder(root):
+            if root is not None:
+                if root.left is None and root.right is None:
+                    return '{}'.format(root.val)
+                if root.left is None and root.right is not None:
+                    return '{}()({})'.format(root.val, preorder(root.right))
+                if root.left is not None and root.right is None:
+                    return '{}({})'.format(root.val, preorder(root.left))
+                return '{}({})({})'.format(root.val, preorder(root.left), preorder(root.right))
             else:
-                return ''
-                
-        ans = get_ans(t)
-        return ans
+                return ""
+        res = preorder(t)
+        return res
