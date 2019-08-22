@@ -51,5 +51,3 @@ class Solution2:
                 return root
             self.insertIntoBST(root.right, val)
             return root
-        
-        
