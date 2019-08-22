@@ -52,3 +52,29 @@ class Solution(object):
         get_ans(root)
         
         return root
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution2:
+    def pruneTree(self, root: TreeNode) -> TreeNode:
+        
+        def postOrder(root):
+            if root:
+                postOrder(root.left)
+                postOrder(root.right)
+                
+                if root.left is not None:
+                    if root.left.val == 0 and root.left.left is None and root.left.right is None:
+                        root.left = None
+                if root.right is not None:
+                    if root.right.val == 0 and root.right.left is None and root.right.right is None:
+                        root.right = None
+        postOrder(root)
+        return root
+    

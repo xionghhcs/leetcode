@@ -34,4 +34,30 @@ class Solution:
             if self.table[k] == self.max_freq:
                 ans.append(k)
         return ans
-    
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution2:
+    cnt = -1
+    def findFrequentTreeSum(self, root: TreeNode) -> List[int]:
+        table = dict()
+        def dfs(root):
+            if root:
+                l = dfs(root.left)
+                r = dfs(root.right)
+                cur_s = l + r + root.val
+                table[cur_s] = table.get(cur_s, 0) + 1
+                self.cnt = max(self.cnt, table.get(cur_s))
+                return cur_s
+            return 0
+        dfs(root)
+        ans = []
+        for k in table:
+            if table[k] == self.cnt:
+                ans.append(k)
+        return ans
