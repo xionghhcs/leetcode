@@ -26,4 +26,30 @@ class Solution(object):
         
         insert(root, val)
         return root
-    
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution2:
+    def insertIntoBST(self, root: TreeNode, val: int) -> TreeNode:
+        node = TreeNode(val)
+        if root is None:
+            return node
+        if val < root.val:
+            if root.left is None:
+                root.left = node
+                return root
+            self.insertIntoBST(root.left, val)
+            return root
+        else:
+            if root.right is None:
+                root.right = node
+                return root
+            self.insertIntoBST(root.right, val)
+            return root
+        
+        
