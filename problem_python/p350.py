@@ -25,3 +25,23 @@ class Solution(object):
                 j += 1
         return nums1[:k]
 
+class Solution2:
+    def intersect(self, n1: List[int], n2: List[int]) -> List[int]:
+        ans = []
+        n1.sort()
+        n2.sort()
+        i = 0
+        j = 0
+        while i<len(n1) and j<len(n2):
+            if n1[i] == n2[j]:
+                ans.append(n1[i])
+                i += 1
+                j += 1
+                continue
+            if n1[i] < n2[j]:
+                i += 1
+            else:
+                j += 1
+        return ans
+      
+        
