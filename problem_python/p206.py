@@ -18,3 +18,12 @@ class Solution(object):
             head.next = new_head_next
             head = head_next
         return new_head.next
+
+class Solution2:
+    def reverseList(self, head: ListNode) -> ListNode:
+        if head is None or head.next is None:
+            return head
+        p = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return p

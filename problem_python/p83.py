@@ -27,3 +27,29 @@ class Solution:
         return head
 
         
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution2:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        
+        def recur(node, pre):
+            if node:
+                if pre is None:
+                    pre = node
+                    recur(node.next, pre)
+                else:
+                    if pre.val == node.val:
+                        pre.next = node.next
+                        recur(node.next, pre)
+                        node.next = None
+                    else:
+                        pre = node
+                        recur(node.next, pre)
+        recur(head, None)
+        return head
+    
+                            
