@@ -18,3 +18,16 @@ class Solution:
 
         
 
+class Solution2:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        carry = 0
+        for i in range(len(digits)-1, -1, -1):
+            s = digits[i] + carry
+            if i == len(digits) - 1:
+                s += 1
+            digits[i] = s % 10
+            carry = s // 10
+        if carry > 0:
+            digits = [carry] + digits
+        return digits
+    

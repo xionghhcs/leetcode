@@ -21,3 +21,21 @@ class Solution(object):
                 table[i] = [1, idx]
         return ans
 
+class Solution2:
+    def findShortestSubArray(self, nums: List[int]) -> int:
+        table = dict()
+        max_degree = 1
+        min_len = 1
+        for idx, c in enumerate(nums):
+            if c not in table:
+                table[c] = [1, idx]
+            else:
+                table[c][0] += 1
+                tmp_len = idx - table[c][1] + 1
+                if table[c][0] > max_degree:
+                    max_degree = table[c][0]
+                    min_len = idx - table[c][1] + 1
+                elif table[c][0] == max_degree and tmp_len < min_len:
+                    min_len = tmp_len
+        return min_len
+    
