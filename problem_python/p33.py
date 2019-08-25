@@ -34,3 +34,18 @@ class Solution2:
                     i = mid + 1
                 pass
         return -1
+
+class Solution3:
+    def search(self, nums: List[int], target: int) -> int:
+        i = 0
+        j = len(nums)-1
+        while i<j:
+            mid = (i + j) // 2
+            
+            if (target < nums[0]) ^ (nums[mid] < nums[0]) ^ (nums[mid]<target):
+                i = mid + 1
+            else:
+                j = mid
+        if i == j and nums[i] == target:
+            return i
+        return -1
