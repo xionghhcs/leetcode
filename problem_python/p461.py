@@ -13,3 +13,15 @@ class Solution(object):
             return num
         ans = x ^ y
         return count1(ans)
+
+class Solution2:
+    def hammingDistance(self, x: int, y: int) -> int:
+        cnt = 0
+        for _ in range(32):
+            xr = x % 2
+            yr = y % 2
+            x = x // 2
+            y = y // 2
+            if xr != yr:
+                cnt += 1
+        return cnt
