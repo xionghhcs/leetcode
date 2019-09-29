@@ -16,5 +16,3 @@ class Solution(object):
         reverse(nums, 0, len(nums) - k - 1)
         reverse(nums, len(nums) - k, len(nums)-1)
         reverse(nums, 0 , len(nums) - 1)
-
-

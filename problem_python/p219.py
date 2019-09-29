@@ -21,3 +21,16 @@ class Solution(object):
             else:
                 hash_table[v] = idx
         return False
+
+class Solution2:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        table = dict()
+        ans = 0
+        for i, v in enumerate(nums):
+            if v not in table:
+                table[v] = i
+            else:
+                if i - table[v] <= k:
+                    return True
+                table[v] = i
+        return False
